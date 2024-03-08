@@ -55,7 +55,5 @@ async function findAddress(cep) {
     validate-on="submit"
     variant="outlined"
   >
-    <!--        v-on:update:modelValue="$emit(address)"
-    -->
   </v-text-field>
 </template>

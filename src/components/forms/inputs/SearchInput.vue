@@ -13,10 +13,8 @@
           append-inner-icon="mdi-magnify"
           bg-color="#FFFFFF"
           class="mr-4"
-          density="compact"
           hide-details
           placeholder="busque aqui seu produto"
-          variant="outlined"
           v-bind="props"
         />
       </v-responsive>

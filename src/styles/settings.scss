@@ -8,3 +8,7 @@
 //@use 'vuetify/settings' with (
 // $app-bar-background: red
 // );
+
+.v-text-field .v-input__details{
+  overflow: visible;
+}

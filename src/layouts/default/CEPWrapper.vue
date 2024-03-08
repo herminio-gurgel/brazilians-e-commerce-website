@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-import CEPField from "@/components/forms/inputs/CEPField.vue";
+import CEPField from "@/components/forms/inputs/CEPInput.vue";
 
 const form = ref();
 const address = ref();
@@ -92,7 +92,7 @@ async function validate() {
             acesse os endereços cadastrados
           </span>
         </p>
-        <v-btn class="text-lowercase" block color="green" text="fazer login"/>
+        <v-btn class="text-lowercase" block color="green" text="fazer login" to="/sign-up"/>
       </v-card-text>
     </v-card>
   </v-menu>
@@ -158,7 +158,7 @@ async function validate() {
             acesse os endereços cadastrados
           </span>
         </p>
-        <v-btn class="text-lowercase" block color="green" text="fazer login"/>
+        <v-btn class="text-lowercase" block color="green" text="fazer login" to="/sign-up"/>
       </v-card-text>
     </v-card>
   </v-dialog>

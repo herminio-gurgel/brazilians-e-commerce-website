@@ -3,11 +3,9 @@
 </script>
 
 <template>
-
-<!--    <div class="defaultTitle">brazilians</div>-->
-    <div class="defaultTitle font-weight-black">brazilians</div>
-
-
+<router-link to="/" class="text-decoration-none">
+  <div class="defaultTitle font-weight-black">brazilians</div>
+</router-link>
 </template>
 
 <style scoped lang="scss">
@@ -22,7 +20,4 @@
   z-index: 0;
 }
 
-.teste {
-  background-color: #f0f0f0;
-}
 </style>

@@ -17,7 +17,7 @@ const topics = [
 </script>
 
 <template>
-  <v-toolbar density="compact" color="green">
+  <v-toolbar>
     <v-container class="d-flex">
       <CEPWrapper/>
       <v-spacer />

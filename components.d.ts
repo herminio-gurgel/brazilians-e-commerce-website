@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AccountDrawer: typeof import('./src/components/AccountDrawer.vue')['default']
+    BestSellers: typeof import('./src/components/BestSellers.vue')['default']
     BirthdateInput: typeof import('./src/components/forms/inputs/BirthdateInput.vue')['default']
     CEPField: typeof import('./src/components/forms/inputs/CEPField.vue')['default']
     CEPInput: typeof import('./src/components/forms/inputs/CEPInput.vue')['default']
@@ -15,6 +17,7 @@ declare module 'vue' {
     GenderInput: typeof import('./src/components/forms/inputs/GenderInput.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     NameInput: typeof import('./src/components/forms/inputs/NameInput.vue')['default']
+    OrderPanel: typeof import('./src/components/OrderPanel.vue')['default']
     PasswordInput: typeof import('./src/components/forms/inputs/PasswordInput.vue')['default']
     PassWordStrength: typeof import('./src/components/forms/inputs/PassWordStrength.vue')['default']
     PhoneInput: typeof import('./src/components/forms/inputs/PhoneInput.vue')['default']
@@ -23,7 +26,8 @@ declare module 'vue' {
     SearchBar: typeof import('./src/components/forms/inputs/SearchBar.vue')['default']
     SearchInput: typeof import('./src/components/forms/inputs/SearchInput.vue')['default']
     ShareDataInput: typeof import('./src/components/forms/inputs/ShareDataInput.vue')['default']
-    SignIn: typeof import('./src/components/SignIn.vue')['default']
+    SignIn: typeof import('./src/components/forms/SignIn.vue')['default']
+    SignUp: typeof import('./src/components/forms/SignUp.vue')['default']
     SubscribeInput: typeof import('./src/components/forms/inputs/SubscribeInput.vue')['default']
   }
 }

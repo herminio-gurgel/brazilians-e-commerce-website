@@ -9,3 +9,11 @@ import DepartmentMenu from "@/layouts/default/DepartmentMenu.vue";
     <router-view/>
   </v-main>
 </template>
+
+<route lang="json">
+{
+"meta": {
+"layout": "normal"
+}
+}
+</route>

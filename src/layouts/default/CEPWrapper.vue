@@ -92,7 +92,7 @@ async function validate() {
             acesse os endereços cadastrados
           </span>
         </p>
-        <v-btn class="text-lowercase" block color="green" text="fazer login" to="/sign-up"/>
+        <v-btn class="text-lowercase" block color="green" text="fazer login" to="/my-account/sign-in"/>
       </v-card-text>
     </v-card>
   </v-menu>
@@ -119,6 +119,9 @@ async function validate() {
 
     </template>
     <v-card>
+      <div class="d-flex justify-end mt-2 mr-2">
+        <v-icon icon="mdi-close" @click="dialog = false"/>
+      </div>
       <v-card-text>
 
         <p class="mb-6">as melhores ofertas e condições de frete para a sua região :)</p>
@@ -158,7 +161,7 @@ async function validate() {
             acesse os endereços cadastrados
           </span>
         </p>
-        <v-btn class="text-lowercase" block color="green" text="fazer login" to="/sign-up"/>
+        <v-btn class="text-lowercase" block color="green" text="fazer login" to="/my-account/sign-in"/>
       </v-card-text>
     </v-card>
   </v-dialog>

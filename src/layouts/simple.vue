@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import SimpleBar from './simple/AppBar.vue'
-import SimpleView from "@/layouts/simple/SimpleView.vue";
+import SimpleView from "./simple/SimpleView.vue";
 </script>
 
 <template>
-  <SimpleBar/>
-  <SimpleView/>
+  <v-app>
+    <SimpleBar/>
+    <SimpleView/>
+  </v-app>
 </template>

@@ -1,0 +1,10 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+.v-text-field .v-input__details {
+  overflow: visible;
+}
+
+/*# sourceMappingURL=settings.css.map */

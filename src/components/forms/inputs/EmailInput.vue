@@ -3,6 +3,7 @@ import {ref} from 'vue'
 
 const emit = defineEmits(['validated'])
 
+const props = defineProps(['login'])
 const email = ref()
 const success = ref()
 
@@ -17,13 +18,14 @@ const emailRules = {
     const emailAddress = value
     success.value = 'success'
     emit('validated', emailAddress)
+    return true;
   }
 };
 </script>
 
 <template>
   <v-text-field
-    hint="informe um e-mail válido. Você vai precisar ativar sua conta depois de criar seu cadastro"
+    v-bind:hint="!login ? 'informe um e-mail válido. Você vai precisar ativar sua conta depois de criar seu cadastro' : ''"
     v-bind:rules="[emailRules.required, emailRules.valid, emailRules.validated]"
     v-bind:base-color="success"
     v-model="email"

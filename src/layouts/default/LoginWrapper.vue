@@ -43,8 +43,8 @@
       </v-card-text>
 
       <v-card-actions class="d-flex flex-column">
-        <v-btn color="green" class="text-lowercase" variant="flat" block>entrar</v-btn>
-        <v-btn color="green" class="text-lowercase ml-0 mt-2" variant="outlined" block to="/sign-up">cadastrar</v-btn>
+        <v-btn color="green" class="text-lowercase" variant="flat" block to="/my-account/sign-in">entrar</v-btn>
+        <v-btn color="green" class="text-lowercase ml-0 mt-2" variant="outlined" block to="/my-account/sign-up">cadastrar</v-btn>
       </v-card-actions>
       <v-card-text class="text-caption pt-0">comprou na loja física ou no app da Ame? Acompanhar o pedido</v-card-text>
     </v-card>

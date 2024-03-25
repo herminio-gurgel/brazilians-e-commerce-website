@@ -2,6 +2,7 @@
 import {ref} from 'vue'
 import zxcvbn from "zxcvbn";
 
+const props = defineProps(['login'])
 const password = ref()
 const visible = ref(false)
 const success = ref()
@@ -24,12 +25,16 @@ const passwordRules = {
 
 <template>
   <v-text-field
-    hint="precisa ter entre 8 e 20 caracteres"
+    v-bind:hint="!login ? 'precisa ter entre 8 e 20 caracteres': ''"
+    v-bind:style="!login ? 'width: 250px' : ''"
     maxlength="20"
-    style="width: 250px"
     v-bind:append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
     v-bind:base-color="success"
-    v-bind:rules="[passwordRules.required, passwordRules.min, passwordRules.strength, passwordRules.validated]"
+    v-bind:rules="[
+      passwordRules.required,
+      !login ? passwordRules.min : ()=>{return true},
+      !login ? passwordRules.strength : ()=>{return true},
+      passwordRules.validated]"
     v-bind:type="visible ? 'text' : 'password'"
     v-model="password"
     v-on:click:append-inner="visible = !visible"

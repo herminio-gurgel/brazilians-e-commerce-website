@@ -1,7 +1,6 @@
 <script setup>
 import OrderPanel from "../../components/OrderPanel";
-import BestSellers from "../../components/BestSellers";
-</script>
+import BestSellers from "../../components/BestSellers";</script>
 
 <template>
 
@@ -24,8 +23,9 @@ import BestSellers from "../../components/BestSellers";
 
 <route lang="json">
 {
-"meta": {
-"layout": "account"
-}
+  "name": "my-account",
+  "meta": {
+    "layout": "account"
+  }
 }
 </route>

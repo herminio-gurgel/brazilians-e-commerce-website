@@ -1,15 +1,16 @@
 <template>
-  <HelloWorld />
+  <HelloWorld/>
 </template>
 
 <script lang="ts" setup>
-  //
+//
 </script>
 
 <route lang="json">
 {
-"meta": {
-"layout": "full"
-}
+  "name": "home",
+  "meta": {
+    "layout": "full"
+  }
 }
 </route>

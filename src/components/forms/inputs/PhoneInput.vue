@@ -2,9 +2,11 @@
 import {vMaska} from "maska";
 import {reactive, ref} from "vue";
 
-const phoneNumber = ref()
-const success = ref()
 const emit = defineEmits(['validated'])
+const props = defineProps(['data'])
+
+const phoneNumber = ref(props.data)
+const success = ref()
 const options = reactive({
   mask: "(##)#####-####"
 })

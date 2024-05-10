@@ -17,6 +17,7 @@ declare module 'vue' {
     GenderInput: typeof import('./src/components/forms/inputs/GenderInput.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     NameInput: typeof import('./src/components/forms/inputs/NameInput.vue')['default']
+    NicknameInput: typeof import('./src/components/forms/inputs/NicknameInput.vue')['default']
     OrderPanel: typeof import('./src/components/OrderPanel.vue')['default']
     PasswordInput: typeof import('./src/components/forms/inputs/PasswordInput.vue')['default']
     PassWordStrength: typeof import('./src/components/forms/inputs/PassWordStrength.vue')['default']
@@ -29,5 +30,6 @@ declare module 'vue' {
     SignIn: typeof import('./src/components/forms/SignIn.vue')['default']
     SignUp: typeof import('./src/components/forms/SignUp.vue')['default']
     SubscribeInput: typeof import('./src/components/forms/inputs/SubscribeInput.vue')['default']
+    UpdateUser: typeof import('./src/components/forms/UpdateUser.vue')['default']
   }
 }

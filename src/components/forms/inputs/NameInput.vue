@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
+const props = defineProps(['data'])
 const emit = defineEmits(['validated'])
 
-const name = ref();
+const name = ref(props.data);
 const success = ref();
 
 const nameRules = {

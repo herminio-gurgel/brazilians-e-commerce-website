@@ -1,92 +1,127 @@
 <script setup>
 const items = [
   {
+    title: 'olá, aqui é sua conta',
+    props: {
+      prependIcon: "mdi-account-outline",
+      class: 'mb-6 bg-white'
+    }
+  },
+  {
     title: 'pedidos',
-    subtitle: 'acompanhar envio, ver Nota Fiscal',
-    icon: 'mdi-package-variant-closed',
-    to: '/my-account/orders'
+    props: {
+      subtitle: 'acompanhar envio, ver Nota Fiscal',
+      prependIcon: 'mdi-package-variant-closed',
+      // activeClass: 'border-s-lg',
+      appendIcon: 'mdi-chevron-right',
+      class: 'bg-white mb-2',
+      to: {name: 'orders'}
+    },
   },
-  {
-    title: 'favoritos',
-    subtitle: 'ver os Produtos que você favoritou',
-    icon: 'mdi-heart-outline',
-  },
-  {
-    title: 'vales',
-    subtitle: 'ver e desbloquear seus vales',
-    icon: 'mdi-ticket-percent-outline',
-  },
-  {title: 'gift cards', subtitle: 'ver seus gift cards', icon: 'mdi-wallet-giftcard', link: '', method: ''},
+  // {
+  //   title: 'favoritos',
+  //   props: {
+  //     subtitle: 'ver os Produtos que você favoritou',
+  //     prependIcon: 'mdi-heart-outline',
+  //     appendIcon: 'mdi-chevron-right',
+  //     class: 'bg-white mb-2'
+  //   },
+  //
+  // },
+  // {
+  //   title: 'vales',
+  //   props: {
+  //     subtitle: 'ver e desbloquear seus vales',
+  //     prependIcon: 'mdi-ticket-percent-outline',
+  //     appendIcon: 'mdi-chevron-right',
+  //     class: 'bg-white mb-2'
+  //   },
+  // },
+  // {
+  //   title: 'gift cards',
+  //   props: {
+  //     subtitle: 'ver seus gift cards',
+  //     prependIcon: 'mdi-wallet-giftcard',
+  //     appendIcon: 'mdi-chevron-right',
+  //     class: 'bg-white mb-2'
+  //   },
+  // },
   {
     title: 'cadastro',
-    subtitle: 'ver e alterar sues dados, seu e-mail e sua senha',
-    icon: 'mdi-account-outline',
+    props: {
+      subtitle: 'ver e alterar sues dados, seu e-mail e sua senha',
+      prependIcon: 'mdi-account-outline',
+      appendIcon: 'mdi-chevron-right',
+      class: 'bg-white mb-2',
+      to: {name: 'user'}
+    },
   },
   {
     title: 'endereços',
-    subtitle: 'ver e alterar seus endereços',
-    icon: 'mdi-map-marker-outline',
+    props: {
+      subtitle: 'ver e alterar seus endereços',
+      prependIcon: 'mdi-map-marker-outline',
+      appendIcon: 'mdi-chevron-right',
+      to: {name: 'address'},
+      class: 'bg-white mb-2'
+    },
   },
-  {title: 'cartões', subtitle: 'ver seus cartões cadastrados', icon: 'mdi-credit-card-outline', link: '', method: ''},
-  {
-    title: 'perguntas frequentes',
-    subtitle: 'consultar perguntas e respostas frequentes',
-    icon: 'mdi-help-circle-outline',
-  },
-  {
-    title: 'privacidade',
-    subtitle: 'ver políticas de privacidade, relatório de dados e gerenciar as notificações',
-    icon: 'mdi-shield-check-outline',
-  },
-  {
-    title: 'preferência de e-mail e mensagens',
-    subtitle: 'escolher receber notificações por e-mail e SMS',
-    icon: 'mdi-chat-processing-outline',
-  },
+  // {
+  //   title: 'cartões',
+  //   props: {
+  //     subtitle: 'ver seus cartões cadastrados',
+  //     appendIcon: 'mdi-chevron-right',
+  //     prependIcon: 'mdi-credit-card-outline',
+  //     class: 'bg-white mb-2'
+  //   },
+  // },
+  // {
+  //   title: 'perguntas frequentes',
+  //   props: {
+  //     subtitle: 'consultar perguntas e respostas frequentes',
+  //     appendIcon: 'mdi-chevron-right',
+  //     prependIcon: 'mdi-help-circle-outline',
+  //     class: 'bg-white mb-2'
+  //   },
+  // },
+  // {
+  //   title: 'privacidade',
+  //   props: {
+  //     subtitle: 'ver políticas de privacidade, relatório de dados e gerenciar as notificações',
+  //     appendIcon: 'mdi-chevron-right',
+  //     prependIcon: 'mdi-shield-check-outline',
+  //     class: 'bg-white mb-2'
+  //   },
+  // },
+  // {
+  //   title: 'preferência de e-mail e mensagens',
+  //   props: {
+  //     subtitle: 'escolher receber notificações por e-mail e SMS',
+  //     appendIcon: 'mdi-chevron-right',
+  //     prependIcon: 'mdi-chat-processing-outline',
+  //     class: 'bg-white mb-2'
+  //   }
+  // },
 ]
 </script>
 
 <template>
 
-    <v-list class="pt-0" bg-color="transparent" lines="two" nav min-width="350" width="350">
+  <v-list
+    :items="items"
+    bg-color="transparent"
+    class="mr-4 pt-0"
+    density="compact"
+    lines="two"
+    min-width="355"
+    nav
+    width="350"
+  />
 
-      <v-list-item
-        class="mb-4"
-        rounded="lg"
-        style="background: white"
-      >
-        <v-list-item-title class="d-flex align-center">
-          <v-avatar style="background-color: lightgray" class="mr-3">H</v-avatar>
-          olá, aqui é sua conta
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item
-        v-bind:to="item.to"
-        class="mb-2"
-        rounded="lg"
-        style="background-color: white;"
-        v-for="(item) in items"
-        :key="item">
-
-        <template v-slot:prepend>
-          <v-icon :icon="item.icon"></v-icon>
-        </template>
-
-        <v-list-item-title>{{ item.title }}</v-list-item-title>
-        <v-list-item-subtitle class="text-break">{{ item.subtitle }}</v-list-item-subtitle>
-
-        <template v-slot:append>
-          <v-icon>mdi-chevron-right</v-icon>
-        </template>
-
-      </v-list-item>
-
-    </v-list>
 </template>
 
-<style>
-.background {
-  background-color: #FFFFFF;
+<style scoped>
+.border-s-lg {
+  border-color: black !important;
 }
 </style>

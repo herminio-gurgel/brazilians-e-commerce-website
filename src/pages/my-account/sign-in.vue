@@ -1,17 +1,19 @@
 <script setup>
-import SignIn from "../../components/forms/SignIn"
+import SignIn from "../../components/forms/SignIn";
 </script>
 
 <template>
 
-  <SignIn />
+  <SignIn/>
 
 </template>
 
 <route lang="json">
 {
-"meta": {
-"layout": "simple"
-}
+  "name": "sign-in",
+  "meta": {
+    "layout": "simple",
+    "guest": true
+  }
 }
 </route>

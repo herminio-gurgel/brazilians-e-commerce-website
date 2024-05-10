@@ -1,5 +1,8 @@
 <script setup>
-import {reactive, ref} from "vue";
+import {reactive} from "vue";
+import {storeToRefs} from "pinia";
+import {useRouter} from "vue-router";
+import {useAuthStore} from "../../store/auth";
 import NameInput from "../../components/forms/inputs/NameInput";
 import GenderInput from "../../components/forms/inputs/GenderInput";
 import BirthdateInput from "../../components/forms/inputs/BirthdateInput";
@@ -10,6 +13,11 @@ import SubscribeInput from "../../components/forms/inputs/SubscribeInput";
 import PasswordInput from "../../components/forms/inputs/PasswordInput";
 import PassWordStrength from "../../components/forms/inputs/PassWordStrength";
 import ShareDataInput from "../../components/forms/inputs/ShareDataInput";
+
+const router = useRouter()
+const store = useAuthStore()
+const {isLoggedIn, errors} = storeToRefs()
+const {handleRegister} = store
 
 const user = reactive({
   name: "",
@@ -22,6 +30,13 @@ const user = reactive({
   password: "",
   shareData: true
 })
+
+const handleSubmit = async () => {
+  await handleRegister(user)
+  if (isLoggedIn.value) {
+    router.push({name: 'home'})
+  }
+}
 </script>
 
 <template>
@@ -52,7 +67,7 @@ const user = reactive({
       <PassWordStrength v-bind:password="user.password"/>
       <ShareDataInput v-on:update:modelValue="(n) =>  user.shareData = n"/>
 
-      <v-btn type="submit" color="success" class="mt-2 mb-6 text-lowercase" block>
+      <v-btn block class="mt-2 mb-6 text-lowercase" color="success" type="submit">
         criar seu cadastro
       </v-btn>
 

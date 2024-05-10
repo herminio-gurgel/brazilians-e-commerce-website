@@ -1,6 +1,5 @@
 <script setup>
-import SignUp from "../../components/forms/SignUp"
-</script>
+import SignUp from "../../components/forms/SignUp"</script>
 
 <template>
 
@@ -10,8 +9,10 @@ import SignUp from "../../components/forms/SignUp"
 
 <route lang="json">
 {
-"meta": {
-"layout": "simple"
-}
+  "name": "sign-up",
+  "meta": {
+    "layout": "simple",
+    "guest": true
+  }
 }
 </route>

@@ -1,23 +1,36 @@
 <script setup>
-
 import {reactive, ref} from "vue";
+import {useAuthStore} from "../../store/auth";
+import {storeToRefs} from "pinia"
+import {useRouter} from "vue-router";
 import EmailInput from "./inputs/EmailInput";
 import PasswordInput from "./inputs/PasswordInput";
 
+const router = useRouter()
+const store = useAuthStore()
+const {isLoggedIn, errors} = storeToRefs(store)
+const {handleLogin} = store
 const dialog = ref(false)
 
 const user = reactive({
-  name: "",
   email: "",
+  password: "",
 })
+
+const handleSubmit = async () => {
+  await handleLogin(user)
+  if(isLoggedIn.value){
+    router.push({name: 'home'})
+  }
+}
 </script>
 
 <template>
   <v-container style="width: 420px">
-    <v-form>
+    <v-form @submit.prevent="handleSubmit">
       <div class="text-center mb-8">
         <div class="d-flex justify-center align-center">
-          <v-icon icon="mdi-account-outline" class="text-h3"></v-icon>
+          <v-icon class="text-h3" icon="mdi-account-outline"></v-icon>
           <span class="font-weight-bold text-h5">login do cliente</span>
         </div>
         <p class="font-weight-light">
@@ -29,16 +42,17 @@ const user = reactive({
       <EmailInput
         class="mb-4"
         v-bind:login="true"
-        v-on:validated="(n) =>  user.email = n"/>
+        v-on:validated="(n) =>  user.email = n"
+      />
 
       <v-dialog
-        width="400"
-        style="backdrop-filter: blur(2px);"
         v-model="dialog"
+        style="backdrop-filter: blur(2px);"
+        width="400"
       >
         <template v-slot:activator="{props}">
-          <div v-bind="props" class="d-flex justify-end">
-            <v-btn v-bind:ripple="false" variant="plain" class="font-weight-light text-lowercase">esqueceu?</v-btn>
+          <div class="d-flex justify-end" v-bind="props">
+            <v-btn class="font-weight-light text-lowercase" v-bind:ripple="false" variant="plain">esqueceu?</v-btn>
           </div>
         </template>
 
@@ -64,15 +78,16 @@ const user = reactive({
       <PasswordInput
         class="mb-4"
         v-bind:login="true"
-        v-on:update:modelValue="(n)=> user.password = n"/>
+        v-on:update:modelValue="(n)=> user.password = n"
+      />
 
-      <v-btn type="submit" color="success" class="text-lowercase" block>continuar</v-btn>
+      <v-btn block class="text-lowercase" color="success" type="submit">continuar</v-btn>
 
       <div class="text-center font-weight-light">
 
         <div class="d-flex align-center justify-center">
           <p>não tem cadastro? </p>
-          <v-btn v-bind:ripple="false" to="sign-up" variant="plain" class="text-decoration-none text-lowercase">
+          <v-btn class="text-decoration-none text-lowercase" to="sign-up" v-bind:ripple="false" variant="plain">
             cadastre-se
           </v-btn>
         </div>
@@ -82,7 +97,6 @@ const user = reactive({
         </p>
 
       </div>
-
     </v-form>
   </v-container>
 </template>

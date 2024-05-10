@@ -1,7 +1,9 @@
 <script setup>
 import {ref} from 'vue'
 
-const subscribe = ref(true)
+const props = defineProps(['data'])
+
+const subscribe = ref(props.data === undefined ? true : props.data)
 
 </script>
 

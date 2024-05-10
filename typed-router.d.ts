@@ -39,11 +39,14 @@ import type {
 
 declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
-    '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
-    '/my-account/': RouteRecordInfo<'/my-account/', '/my-account', Record<never, never>, Record<never, never>>,
-    '/my-account/orders': RouteRecordInfo<'/my-account/orders', '/my-account/orders', Record<never, never>, Record<never, never>>,
-    '/my-account/sign-in': RouteRecordInfo<'/my-account/sign-in', '/my-account/sign-in', Record<never, never>, Record<never, never>>,
-    '/my-account/sign-up': RouteRecordInfo<'/my-account/sign-up', '/my-account/sign-up', Record<never, never>, Record<never, never>>,
+    'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
+    '/[...path]': RouteRecordInfo<'/[...path]', '/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
+    'my-account': RouteRecordInfo<'my-account', '/my-account', Record<never, never>, Record<never, never>>,
+    'address': RouteRecordInfo<'address', '/my-account/address', Record<never, never>, Record<never, never>>,
+    'orders': RouteRecordInfo<'orders', '/my-account/orders', Record<never, never>, Record<never, never>>,
+    'sign-in': RouteRecordInfo<'sign-in', '/my-account/sign-in', Record<never, never>, Record<never, never>>,
+    'sign-up': RouteRecordInfo<'sign-up', '/my-account/sign-up', Record<never, never>, Record<never, never>>,
+    'user': RouteRecordInfo<'user', '/my-account/user', Record<never, never>, Record<never, never>>,
   }
 }
 

@@ -3,8 +3,9 @@
 import {ref} from "vue";
 
 const emit = defineEmits(['validated']);
+const props = defineProps(['data'])
 
-const gender = ref()
+const gender = ref(props.data)
 
 const genderRules = {
   required: (value) => !!value || "é necessário informar um gênero",

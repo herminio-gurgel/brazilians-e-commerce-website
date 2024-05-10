@@ -4,8 +4,9 @@ import {vMaska} from "maska";
 import moment from 'moment'
 
 const emit = defineEmits(['validated']);
+const props = defineProps(['data'])
 
-const birthdate = ref();
+const birthdate = ref(props.data);
 const success = ref();
 
 

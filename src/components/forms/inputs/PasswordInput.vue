@@ -2,10 +2,15 @@
 import {ref} from 'vue'
 import zxcvbn from "zxcvbn";
 
-const props = defineProps(['login'])
+const props = defineProps(['login', 'update'])
+
 const password = ref()
 const visible = ref(false)
 const success = ref()
+
+if (props.update){
+  password.value = '********'
+}
 
 const passwordRules = {
   required: (value) => !!value || "preencha esse campo",
@@ -25,6 +30,7 @@ const passwordRules = {
 
 <template>
   <v-text-field
+    v-bind:disabled="update"
     v-bind:hint="!login ? 'precisa ter entre 8 e 20 caracteres': ''"
     v-bind:style="!login ? 'width: 250px' : ''"
     maxlength="20"

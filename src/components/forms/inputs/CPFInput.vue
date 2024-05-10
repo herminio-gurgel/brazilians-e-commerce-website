@@ -2,8 +2,10 @@
 import {vMaska} from "maska";
 import {ref, reactive} from "vue";
 
-const cpf = ref();
 const emit = defineEmits(['validated']);
+const props = defineProps(['data'])
+
+const cpf = ref(props.data);
 const success = ref();
 
 const options = reactive({

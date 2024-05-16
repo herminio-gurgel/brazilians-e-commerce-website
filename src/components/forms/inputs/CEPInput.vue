@@ -3,6 +3,9 @@ import {reactive, ref} from "vue";
 import axios from "axios";
 import {vMaska} from "maska";
 
+axios.defaults.withCredentials = false
+axios.defaults.withXSRFToken = false
+
 const emit = defineEmits(['responseReceived', 'requestSent'])
 
 const cep = ref();

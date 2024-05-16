@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {ref} from 'vue';
 import CEPField from "@/components/forms/inputs/CEPInput.vue";
 
@@ -26,10 +26,6 @@ function updateAddress(n) {
 async function validate() {
 
   const {valid} = await form.value.validate()
-
-  if (valid) {
-    console.log('valido')
-  }
 
 }
 
